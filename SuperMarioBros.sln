@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarioBros", "SuperMarioBros\SuperMarioBros\SuperMarioBros.csproj", "{9BEBD258-E4D7-416A-A6C3-E79A3BE8996E}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SuperMarioBrosContent", "SuperMarioBros\SuperMarioBrosContent\SuperMarioBrosContent.contentproj", "{278B0FAA-D3B9-43FF-AAE6-14BC5B16EBD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BEBD258-E4D7-416A-A6C3-E79A3BE8996E}.Debug|x86.ActiveCfg = Debug|x86
+		{9BEBD258-E4D7-416A-A6C3-E79A3BE8996E}.Debug|x86.Build.0 = Debug|x86
+		{9BEBD258-E4D7-416A-A6C3-E79A3BE8996E}.Release|x86.ActiveCfg = Release|x86
+		{9BEBD258-E4D7-416A-A6C3-E79A3BE8996E}.Release|x86.Build.0 = Release|x86
+		{278B0FAA-D3B9-43FF-AAE6-14BC5B16EBD1}.Debug|x86.ActiveCfg = Debug|x86
+		{278B0FAA-D3B9-43FF-AAE6-14BC5B16EBD1}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
