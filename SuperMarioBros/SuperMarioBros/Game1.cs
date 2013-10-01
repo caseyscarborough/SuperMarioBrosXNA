@@ -55,7 +55,7 @@ namespace SuperMarioBros
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
 
