@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shooter.ScreenManagers
+namespace SuperMarioBros.ScreenManagers
 {
     /// <summary>
     /// Helper for reading input from keyboard, gamepad, and touch input. This class 

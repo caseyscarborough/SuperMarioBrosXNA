@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shooter.ScreenManagers
+namespace SuperMarioBros.ScreenManagers
 {
     /// <summary>
     /// Enum describes the screen transition state.

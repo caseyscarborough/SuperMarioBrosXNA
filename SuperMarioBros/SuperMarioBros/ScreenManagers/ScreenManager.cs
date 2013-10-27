@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace Shooter.ScreenManagers
+namespace SuperMarioBros.ScreenManagers
 {
     public class ScreenManager : DrawableGameComponent
     {
