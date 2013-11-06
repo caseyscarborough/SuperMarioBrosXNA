@@ -112,14 +112,10 @@ namespace SuperMarioBros.Screens
 #endif
 
             // Draw the selected entry in yellow, otherwise white.
-            Color color = isSelected ? Color.Beige : Color.White;
+            Color color = isSelected ? Color.Yellow : Color.White;
 
             // Pulsate the size of the selected menu entry.
             double time = gameTime.TotalGameTime.TotalSeconds;
-
-            float pulsate = (float)Math.Sin(time * 6) + 1;
-
-            float scale = 1 + pulsate * 0.025f * selectionFade;
 
             // Modify the alpha to fade text out during transitions.
             color *= screen.TransitionAlpha;
@@ -129,10 +125,8 @@ namespace SuperMarioBros.Screens
             SpriteBatch spriteBatch = screenManager.SpriteBatch;
             SpriteFont font = screenManager.Font;
 
-            Vector2 origin = new Vector2(0, font.LineSpacing / 2);
-
             spriteBatch.DrawString(font, text, position, color, 0,
-                                   origin, scale, SpriteEffects.None, 0);
+                                   new Vector2(0,-30), 1, SpriteEffects.None, 0);
         }
 
 
