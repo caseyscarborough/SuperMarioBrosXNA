@@ -9,17 +9,24 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using SuperMarioBros.ScreenManagers;
+using SuperMarioBros.Screens;
+
 namespace SuperMarioBros
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        ScreenManager screenManager;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            screenManager = new ScreenManager(this);
+            Components.Add(screenManager);
+            screenManager.AddScreen(new MainMenuScreen(), null);
         }
 
         protected override void Initialize()
