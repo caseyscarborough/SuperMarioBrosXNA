@@ -9,8 +9,8 @@ namespace SuperMarioBros.LevelManagers
 {
     class FloorTile : Tile
     {
-        public FloorTile()
-            : base(32, 33, new Vector2(244, 137))
+        public FloorTile(Vector2 position)
+            : base(position, 32, 33, new Vector2(244, 137))
         {
 
         }
@@ -19,7 +19,6 @@ namespace SuperMarioBros.LevelManagers
         {
             base.Draw(spriteBatch);
         }
-
 
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using SuperMarioBros.LevelManagers;
 using SuperMarioBros.ScreenManagers;
+using System.Collections.Generic;
 
 namespace SuperMarioBros.Screens
 {
@@ -14,7 +15,7 @@ namespace SuperMarioBros.Screens
     {
         ContentManager content;
         SpriteBatch spriteBatch;
-        Tile floorTile;
+        List<Tile> floorTiles = new List<Tile>();
 
         /// <summary>
         /// Constructor fills in the menu contents.
@@ -57,7 +58,14 @@ namespace SuperMarioBros.Screens
         public override void LoadContent()
         {
             spriteBatch = ScreenManager.SpriteBatch;
-            floorTile = new FloorTile();
+            int floorTileWidth = 0;
+
+            while (floorTileWidth < ScreenManager.Game.GraphicsDevice.Viewport.Width)
+            {
+                floorTiles.Add(new FloorTile(new Vector2(floorTileWidth, ScreenManager.Game.GraphicsDevice.Viewport.Height - 33)));
+                floorTiles.Add(new FloorTile(new Vector2(floorTileWidth, ScreenManager.Game.GraphicsDevice.Viewport.Height - 66)));
+                floorTileWidth += 32;
+            }
 
             base.LoadContent();
         }
@@ -71,6 +79,10 @@ namespace SuperMarioBros.Screens
             spriteBatch.Begin();
             spriteBatch.Draw(GameContentManager.MainMenuLogo, logoPosition, Color.White);
             spriteBatch.End();
+            for (int i = 0; i < floorTiles.Count; i++)
+            {
+                floorTiles[i].Draw(spriteBatch);
+            }
             base.Draw(gameTime);
         }
 

@@ -15,6 +15,7 @@ namespace SuperMarioBros.LevelManagers
         int height;
         Vector2 origin;
         Rectangle rect;
+        Vector2 position;
 
         // Accessor method for getting the width of the tile.
         public int Width
@@ -28,8 +29,9 @@ namespace SuperMarioBros.LevelManagers
             get { return height; }
         }
 
-        public Tile(int width, int height, Vector2 origin) : base(LevelManager.Game)
+        public Tile(Vector2 position, int width, int height, Vector2 origin) : base(LevelManager.Game)
         {
+            this.position = position;
             this.width = width;
             this.height = height;
             this.origin = origin;
@@ -44,7 +46,7 @@ namespace SuperMarioBros.LevelManagers
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(GameContentManager.SpritesTexture, rect, Color.White);
+            spriteBatch.Draw(GameContentManager.SpritesTexture, position, rect, Color.White);
             spriteBatch.End();
         }
     }
