@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 using SuperMarioBros.ScreenManagers;
 using SuperMarioBros.Screens;
+using SuperMarioBros.LevelManagers;
 
 namespace SuperMarioBros
 {
@@ -19,6 +20,7 @@ namespace SuperMarioBros
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ScreenManager screenManager;
+        LevelManager levelManager;
 
         public Game1()
         {
@@ -27,6 +29,8 @@ namespace SuperMarioBros
             screenManager = new ScreenManager(this);
             Components.Add(screenManager);
             screenManager.AddScreen(new MainMenuScreen(), null);
+
+            levelManager = new LevelManager(this);
         }
 
         protected override void Initialize()

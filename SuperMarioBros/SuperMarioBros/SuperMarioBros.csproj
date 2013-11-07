@@ -110,6 +110,10 @@
   <ItemGroup>
     <Compile Include="Components\GameComponent.cs" />
     <Compile Include="Components\Mario.cs" />
+    <Compile Include="LevelManagers\FloorTile.cs" />
+    <Compile Include="LevelManagers\Level.cs" />
+    <Compile Include="LevelManagers\LevelManager.cs" />
+    <Compile Include="LevelManagers\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

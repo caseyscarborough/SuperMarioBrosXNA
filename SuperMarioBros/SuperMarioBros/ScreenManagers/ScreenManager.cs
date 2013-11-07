@@ -67,7 +67,6 @@ namespace SuperMarioBros.ScreenManagers
             // we must set EnabledGestures before we can query for them, but
             // we don't assume the game wants to read them.
             TouchPanel.EnabledGestures = GestureType.None;
-
             this.Game = game;
         }
 
