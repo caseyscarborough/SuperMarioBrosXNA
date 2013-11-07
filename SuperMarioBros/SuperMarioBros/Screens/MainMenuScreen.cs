@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
+using SuperMarioBros.LevelManagers;
 using SuperMarioBros.ScreenManagers;
 
 namespace SuperMarioBros.Screens
@@ -13,7 +14,8 @@ namespace SuperMarioBros.Screens
     {
         ContentManager content;
         SpriteBatch spriteBatch;
-        Texture2D mainMenuLogo;
+        Tile floorTile;
+
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
@@ -54,11 +56,8 @@ namespace SuperMarioBros.Screens
 
         public override void LoadContent()
         {
-            if (content == null) // Lazily instantiate the content manager.
-                content = new ContentManager(ScreenManager.Game.Services, "Content");
-
-            mainMenuLogo = content.Load<Texture2D>("Sprites/main_menu_logo");
             spriteBatch = ScreenManager.SpriteBatch;
+            floorTile = new FloorTile();
 
             base.LoadContent();
         }
@@ -66,10 +65,11 @@ namespace SuperMarioBros.Screens
         public override void Draw(GameTime gameTime)
         {
             Vector2 logoPosition = new Vector2(
-                (ScreenManager.Game.GraphicsDevice.Viewport.Width / 2) - (mainMenuLogo.Width / 2),
+                (ScreenManager.Game.GraphicsDevice.Viewport.Width / 2) - (GameContentManager.MainMenuLogo.Width / 2),
                                            ScreenManager.Game.GraphicsDevice.Viewport.Height / 6);
+            spriteBatch = ScreenManager.SpriteBatch;
             spriteBatch.Begin();
-            spriteBatch.Draw(mainMenuLogo, logoPosition, Color.White);
+            spriteBatch.Draw(GameContentManager.MainMenuLogo, logoPosition, Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }

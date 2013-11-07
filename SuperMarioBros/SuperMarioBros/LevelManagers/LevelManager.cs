@@ -5,21 +5,15 @@ using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioBros.LevelManagers
 {   
     public class LevelManager
     {
         SpriteBatch spriteBatch;
-        Game game;
-
-        /// <summary>
-        /// Reference to the game instance.
-        /// </summary>
-        public Game Game
-        {
-            get { return game; }
-        }
+        public static Game Game;
+        public ContentManager Content;
 
         /// <summary>
         /// Provide an easy way to access the spriteBatch, so that all
@@ -30,9 +24,9 @@ namespace SuperMarioBros.LevelManagers
             get { return spriteBatch; }
         }
 
-        public LevelManager(Game game)
+        protected void LoadContent()
         {
-            this.game = game;
+            Content = Game.Content;
         }
     }
 }

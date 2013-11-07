@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 using SuperMarioBros.ScreenManagers;
+using SuperMarioBros.LevelManagers;
 
 namespace SuperMarioBros.Screens
 {
@@ -37,6 +38,7 @@ namespace SuperMarioBros.Screens
 
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
+
         }
 
 
@@ -127,7 +129,7 @@ namespace SuperMarioBros.Screens
             for (int i = 0; i < menuEntries.Count; i++)
             {
                 MenuEntry menuEntry = menuEntries[i];
-
+                
                 // each entry is to be centered horizontally
                 position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
 

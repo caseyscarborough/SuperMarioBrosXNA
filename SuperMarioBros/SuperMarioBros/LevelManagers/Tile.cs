@@ -9,15 +9,12 @@ using System.Text;
 
 namespace SuperMarioBros.LevelManagers
 {
-    public abstract class Tile
+    public abstract class Tile : DrawableGameComponent
     {
-        String texturePath;
-        Texture2D texture;
         int width;
         int height;
         Vector2 origin;
         Rectangle rect;
-        ContentManager content;
 
         // Accessor method for getting the width of the tile.
         public int Width
@@ -31,35 +28,23 @@ namespace SuperMarioBros.LevelManagers
             get { return height; }
         }
 
-        public LevelManager LevelManager
+        public Tile(int width, int height, Vector2 origin) : base(LevelManager.Game)
         {
-            get { return levelManager; }
-            internal set { levelManager = value;  }
-        }
-
-        LevelManager levelManager;
-
-        public Tile(String texturePath, int width, int height, Vector2 origin)
-        {
-            this.texturePath = texturePath;
             this.width = width;
             this.height = height;
             this.origin = origin;
+            LoadContent();
         }
 
         public void LoadContent()
         {
-            if (content == null) // Lazily instantiate the content manager.
-                content = new ContentManager(LevelManager.Game.Services, "Content");
-            texture = content.Load<Texture2D>(texturePath);
             rect = new Rectangle((int)origin.X, (int)origin.Y, width, height);
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {   
-       
+        {
             spriteBatch.Begin();
-            spriteBatch.Draw(texture, rect, Color.White);
+            spriteBatch.Draw(GameContentManager.SpritesTexture, rect, Color.White);
             spriteBatch.End();
         }
     }

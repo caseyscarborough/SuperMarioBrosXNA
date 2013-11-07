@@ -20,24 +20,31 @@ namespace SuperMarioBros
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ScreenManager screenManager;
-        LevelManager levelManager;
+        ContentManager content;
+        public ContentManager GameContent
+        {
+            get { return content; }
+        }
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            screenManager = new ScreenManager(this);
-            Components.Add(screenManager);
-            screenManager.AddScreen(new MainMenuScreen(), null);
-
-            levelManager = new LevelManager(this);
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
 
+            content = new ContentManager(this.Services, "Content");
+            LevelManager.Game = this;
+            screenManager = new ScreenManager(this);
+            Components.Add(screenManager);
+            GameContentManager.Initialize(this);
+            screenManager.AddScreen(new MainMenuScreen(), null);   
+
             base.Initialize();
+           
         }
 
         protected override void LoadContent()
