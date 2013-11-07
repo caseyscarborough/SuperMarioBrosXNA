@@ -10,8 +10,6 @@ namespace SuperMarioBros.Screens
 {
     public class GameplayScreen : GameScreen
     {
-        Song mainTheme;
-
         public GameplayScreen()
         {
 

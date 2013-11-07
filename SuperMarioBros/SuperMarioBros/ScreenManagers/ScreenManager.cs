@@ -19,12 +19,9 @@ namespace SuperMarioBros.ScreenManagers
 
         SpriteBatch spriteBatch;
         SpriteFont font;
-        Texture2D blankTexture;
 
         bool isInitialized;
         bool traceEnabled;
-
-        public static Game Game;
 
         /// <summary>
         /// A default SpriteBatch shared by all the screens. This saves
@@ -67,7 +64,6 @@ namespace SuperMarioBros.ScreenManagers
             // we must set EnabledGestures before we can query for them, but
             // we don't assume the game wants to read them.
             TouchPanel.EnabledGestures = GestureType.None;
-            ScreenManager.Game = game;
             this.spriteBatch = new SpriteBatch(Game.GraphicsDevice);
         }
 
@@ -278,11 +274,6 @@ namespace SuperMarioBros.ScreenManagers
             Viewport viewport = GraphicsDevice.Viewport;
 
             spriteBatch.Begin();
-
-            spriteBatch.Draw(blankTexture,
-                             new Rectangle(0, 0, viewport.Width, viewport.Height),
-                             Color.Black * alpha);
-
             spriteBatch.End();
         }
     }

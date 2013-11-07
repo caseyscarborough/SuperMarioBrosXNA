@@ -14,11 +14,5 @@ namespace SuperMarioBros.LevelManagers
         {
 
         }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-        }
-
     }
 }

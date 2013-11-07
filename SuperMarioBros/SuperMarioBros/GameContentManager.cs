@@ -18,7 +18,6 @@ namespace SuperMarioBros
         public static void Initialize(Game game) {
             SpritesTexture = game.Content.Load<Texture2D>("Sprites/supermariobros");
             MainMenuLogo = game.Content.Load<Texture2D>("Sprites/main_menu_logo");
-            Mario = game.Content.Load<Texture2D>("Sprites/supermariobros");
             MainTheme = game.Content.Load<Song>("Sounds/main_theme");
         }
     }

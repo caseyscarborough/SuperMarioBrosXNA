@@ -13,7 +13,6 @@ namespace SuperMarioBros.Screens
     /// </summary>
     class MainMenuScreen : MenuScreen
     {
-        ContentManager content;
         SpriteBatch spriteBatch;
         List<Tile> floorTiles = new List<Tile>();
 

@@ -38,8 +38,9 @@ namespace SuperMarioBros.LevelManagers
             LoadContent();
         }
 
-        public void LoadContent()
+        protected override void LoadContent()
         {
+            base.LoadContent();
             rect = new Rectangle((int)origin.X, (int)origin.Y, width, height);
         }
 
