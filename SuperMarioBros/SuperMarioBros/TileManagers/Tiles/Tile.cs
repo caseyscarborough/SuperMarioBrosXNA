@@ -12,11 +12,11 @@ namespace SuperMarioBros.TileManagers.Tiles
 {
     public abstract class Tile : DrawableGameComponent
     {
-        int width;
-        int height;
-        Vector2 origin;
-        Rectangle rect;
-        Vector2 position;
+        protected int width;
+        protected int height;
+        protected Vector2 origin;
+        protected Rectangle rect;
+        protected Vector2 position;
 
         // Accessor method for getting the width of the tile.
         public int Width
@@ -45,7 +45,7 @@ namespace SuperMarioBros.TileManagers.Tiles
             rect = new Rectangle((int)origin.X, (int)origin.Y, width, height);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(GameContentManager.GetInstance().GetTexture("sprite_sheet"), position, rect, Color.White);

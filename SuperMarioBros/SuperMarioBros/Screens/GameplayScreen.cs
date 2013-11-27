@@ -65,6 +65,14 @@ namespace SuperMarioBros.Screens
                     {
                         tileManager.AddTile(new LargeTreeTile(new Vector2(j * 33, i * 29)));
                     }
+                    else if (value == 3)
+                    {
+                        tileManager.AddTile(new BrickTile(new Vector2(j, i)));
+                    }
+                    else if (value == 4)
+                    {
+                        tileManager.AddTile(new QuestionMarkTile(new Vector2(j, i)));
+                    }
                 }
             }
             tileManager.Draw(ScreenManager.GetInstance().SpriteBatch);
