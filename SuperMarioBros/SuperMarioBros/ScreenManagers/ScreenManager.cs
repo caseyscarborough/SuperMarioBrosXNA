@@ -24,6 +24,14 @@ namespace SuperMarioBros.ScreenManagers
         bool isInitialized;
         bool traceEnabled;
 
+        private static ScreenManager _instance;
+
+        public ScreenManager(Game game)
+            : base(game)
+        {
+
+        }
+
         /// <summary>
         /// A default SpriteBatch shared by all the screens. This saves
         /// each screen having to bother creating their own local instance.
@@ -59,14 +67,22 @@ namespace SuperMarioBros.ScreenManagers
         /// <summary>
         /// Constructs a new screen manager component.
         /// </summary>
-        public ScreenManager(Game game)
-            : base(game)
+        public static void Initialize(Game game)
         {
+            _instance = new ScreenManager(game);
             // we must set EnabledGestures before we can query for them, but
             // we don't assume the game wants to read them.
             TouchPanel.EnabledGestures = GestureType.None;
-            this.spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-            this.ScreenSize = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
+            _instance.spriteBatch = new SpriteBatch(_instance.Game.GraphicsDevice);
+            _instance.ScreenSize = new Vector2(_instance.Game.GraphicsDevice.Viewport.Width, _instance.Game.GraphicsDevice.Viewport.Height);
+        }
+
+        public static ScreenManager GetInstance()
+        {
+            if (_instance == null)
+                throw new Exception("Must initialize the ScreenManager class.");
+            else
+                return _instance;
         }
 
 

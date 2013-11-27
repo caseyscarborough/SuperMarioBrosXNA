@@ -9,18 +9,21 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using SuperMarioBros.Components;
+using SuperMarioBros.ScreenManagers;
 
 namespace SuperMarioBros.Components
 {
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class Mario : Microsoft.Xna.Framework.GameComponent
+    public class Mario : GameComponent
     {
         public Mario(Game game)
             : base(game)
         {
             // TODO: Construct any child components here
+
         }
 
         /// <summary>
@@ -43,6 +46,12 @@ namespace SuperMarioBros.Components
             // TODO: Add your update code here
 
             base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            SpriteBatch spriteBatch = ScreenManager.GetInstance().SpriteBatch;
+            base.Draw(gameTime);
         }
     }
 }

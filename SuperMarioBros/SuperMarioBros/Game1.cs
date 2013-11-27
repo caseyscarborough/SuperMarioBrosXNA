@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 using SuperMarioBros.ScreenManagers;
 using SuperMarioBros.Screens;
 using SuperMarioBros.LevelManagers;
+using SuperMarioBros.Components;
 
 namespace SuperMarioBros
 {
@@ -19,8 +20,8 @@ namespace SuperMarioBros
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        ScreenManager screenManager;
         ContentManager content;
+
         public ContentManager GameContent
         {
             get { return content; }
@@ -39,11 +40,13 @@ namespace SuperMarioBros
             content = new ContentManager(this.Services, "Content");
             LevelManager.Game = this;
 
-            screenManager = new ScreenManager(this);
-            Components.Add(screenManager);
-
+            ScreenManager.Initialize(this);
             GameContentManager.GetInstance().Initialize(this.Content);
-            screenManager.AddScreen(new MainMenuScreen(), null);   
+
+            Components.Add(ScreenManager.GetInstance());
+
+            ScreenManager.GetInstance().AddScreen(new MainMenuScreen(), null);
+            Components.Add(new Mario(this));
 
             base.Initialize();
            

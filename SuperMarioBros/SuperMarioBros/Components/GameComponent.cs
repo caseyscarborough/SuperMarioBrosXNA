@@ -16,15 +16,8 @@ namespace SuperMarioBros.Components
         public Texture2D Texture;
         public Vector2 Position;
         public bool Active;
-        protected string contentPath;
 
         public GameComponent(Game game) : base(game) { }
-
-        public GameComponent(Game game, string path)
-            : base(game)
-        {
-            this.contentPath = path;
-        }
 
         // Get the width of the game component
         public int Width
@@ -50,7 +43,6 @@ namespace SuperMarioBros.Components
 
         protected override void LoadContent()
         {
-            this.Texture = Game.Content.Load<Texture2D>(contentPath);
             base.LoadContent();
         }
 
@@ -61,6 +53,11 @@ namespace SuperMarioBros.Components
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
         }
 
     }
