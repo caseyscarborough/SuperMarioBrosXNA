@@ -59,6 +59,10 @@ namespace SuperMarioBros.Screens
                     {
                         tileManager.AddTile(new FloorTile(new Vector2(j, i)));
                     }
+                    else if (value == 2)
+                    {
+                        tileManager.AddTile(new LargeTreeTile(new Vector2(j * 33, i * 29)));
+                    }
                 }
             }
             tileManager.Draw(ScreenManager.GetInstance().SpriteBatch);
