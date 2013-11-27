@@ -72,7 +72,6 @@ namespace SuperMarioBros.Screens
                 tileManager.AddTile(new FloorTile(new Vector2(i, (screenHeight - 1))));
             }
 
-
             base.LoadContent();
         }
 
@@ -81,7 +80,7 @@ namespace SuperMarioBros.Screens
             Vector2 logoPosition = new Vector2(
                 (ScreenManager.Game.GraphicsDevice.Viewport.Width / 2) - (GameContentManager.GetInstance().GetTexture("main_menu_logo").Width / 2),
                                            ScreenManager.Game.GraphicsDevice.Viewport.Height / 6);
-            spriteBatch = ScreenManager.SpriteBatch;
+            spriteBatch = ScreenManager.GetInstance().SpriteBatch;
             spriteBatch.Begin();
             spriteBatch.Draw(GameContentManager.GetInstance().GetTexture("main_menu_logo"), logoPosition, Color.White);
             spriteBatch.End();

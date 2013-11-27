@@ -19,6 +19,7 @@ namespace SuperMarioBros.Components
     /// </summary>
     public class Mario : GameComponent
     {
+        private Rectangle _marioRect = new Rectangle(18, 903, 33, 32);
         public Mario(Game game)
             : base(game)
         {
@@ -33,7 +34,8 @@ namespace SuperMarioBros.Components
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-
+            this.Position = new Vector2(ScreenManager.GetInstance().ScreenSize.X / 8, ScreenManager.GetInstance().ScreenSize.Y - 96);
+            this.Texture = GameContentManager.GetInstance().GetTexture("sprite_sheet");
             base.Initialize();
         }
 
@@ -51,6 +53,9 @@ namespace SuperMarioBros.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = ScreenManager.GetInstance().SpriteBatch;
+            spriteBatch.Begin();
+            spriteBatch.Draw(Texture, Position, _marioRect, Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

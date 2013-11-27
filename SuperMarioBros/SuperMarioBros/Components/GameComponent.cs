@@ -16,6 +16,8 @@ namespace SuperMarioBros.Components
         public Texture2D Texture;
         public Vector2 Position;
         public bool Active;
+        int width;
+        int height;
 
         public GameComponent(Game game) : base(game) { }
 
