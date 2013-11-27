@@ -7,6 +7,7 @@ using SuperMarioBros.TileManagers;
 using SuperMarioBros.TileManagers.Tiles;
 using SuperMarioBros.ScreenManagers;
 using System.Collections.Generic;
+using SuperMarioBros.Components;
 
 namespace SuperMarioBros.Screens
 {
@@ -48,6 +49,7 @@ namespace SuperMarioBros.Screens
         /// </summary>
         void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
+            ScreenManager.GetInstance().Game.Components.RemoveAt(1);
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
         }
 

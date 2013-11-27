@@ -19,6 +19,13 @@ namespace SuperMarioBros.Components
     /// </summary>
     public class Mario : GameComponent
     {
+        enum State
+        {
+            Walking, Jumping
+        }
+
+        State currentState = State.Walking;
+        
         private Rectangle _marioRect = new Rectangle(18, 903, 33, 32);
         public Mario(Game game)
             : base(game)
@@ -43,11 +50,28 @@ namespace SuperMarioBros.Components
         /// Allows the game component to update itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, KeyboardState current, KeyboardState previous)
         {
             // TODO: Add your update code here
-
+            if (current.IsKeyDown(Keys.Left))
+                Position.X -= 3;
+            else if (current.IsKeyDown(Keys.Right))
+                Position.X += 3;
+            else if (current.IsKeyDown(Keys.Space) && !previous.IsKeyDown(Keys.Space) && currentState == State.Walking)
+                Jump();
             base.Update(gameTime);
+        }
+
+        public void Jump()
+        {
+            GameContentManager.GetInstance().GetSound("jump").Play();
+            currentState = State.Jumping;
+
+            float maxHeight = Position.Y;
+            while (Position.Y > maxHeight - 20) Position.Y--;
+            while (Position.Y < maxHeight) Position.Y++;
+            
+            currentState = State.Walking;
         }
 
         public override void Draw(GameTime gameTime)
