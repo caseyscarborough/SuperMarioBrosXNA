@@ -38,9 +38,11 @@ namespace SuperMarioBros
 
             content = new ContentManager(this.Services, "Content");
             LevelManager.Game = this;
+
             screenManager = new ScreenManager(this);
             Components.Add(screenManager);
-            GameContentManager.Initialize(this);
+
+            GameContentManager.GetInstance().Initialize(this.Content);
             screenManager.AddScreen(new MainMenuScreen(), null);   
 
             base.Initialize();

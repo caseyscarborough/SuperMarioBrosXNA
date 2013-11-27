@@ -14,7 +14,7 @@ namespace SuperMarioBros.Screens
     class MainMenuScreen : MenuScreen
     {
         SpriteBatch spriteBatch;
-        List<Tile> floorTiles = new List<Tile>();
+        TileManager tileManager;
 
         /// <summary>
         /// Constructor fills in the menu contents.
@@ -36,6 +36,9 @@ namespace SuperMarioBros.Screens
             MenuEntries.Add(onePlayerGameEntry);
             MenuEntries.Add(twoPlayerGameEntry);
             MenuEntries.Add(exitMenuEntry);
+
+            // Instantiate our tile manager
+            tileManager = new TileManager();
         }
 
         /// <summary>
@@ -57,13 +60,12 @@ namespace SuperMarioBros.Screens
         public override void LoadContent()
         {
             spriteBatch = ScreenManager.SpriteBatch;
-            int floorTileWidth = 0;
+            int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height / 33;
 
-            while (floorTileWidth < ScreenManager.Game.GraphicsDevice.Viewport.Width)
+            for (int i = 0; i < ScreenManager.ScreenSize.X / 33; i++)
             {
-                floorTiles.Add(new FloorTile(new Vector2(floorTileWidth, ScreenManager.Game.GraphicsDevice.Viewport.Height - 33)));
-                floorTiles.Add(new FloorTile(new Vector2(floorTileWidth, ScreenManager.Game.GraphicsDevice.Viewport.Height - 66)));
-                floorTileWidth += 32;
+                tileManager.AddTile(new FloorTile(new Vector2(i, (screenHeight))));
+                tileManager.AddTile(new FloorTile(new Vector2(i, (screenHeight - 1))));
             }
 
             base.LoadContent();
@@ -78,10 +80,7 @@ namespace SuperMarioBros.Screens
             spriteBatch.Begin();
             spriteBatch.Draw(GameContentManager.MainMenuLogo, logoPosition, Color.White);
             spriteBatch.End();
-            for (int i = 0; i < floorTiles.Count; i++)
-            {
-                floorTiles[i].Draw(spriteBatch);
-            }
+            tileManager.Draw(spriteBatch);
             base.Draw(gameTime);
         }
 

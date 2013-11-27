@@ -14,6 +14,7 @@ namespace SuperMarioBros.ScreenManagers
     {
         List<GameScreen> screens = new List<GameScreen>();
         List<GameScreen> screensToUpdate = new List<GameScreen>();
+        public Vector2 ScreenSize;
 
         public InputState input = new InputState();
 
@@ -65,6 +66,7 @@ namespace SuperMarioBros.ScreenManagers
             // we don't assume the game wants to read them.
             TouchPanel.EnabledGestures = GestureType.None;
             this.spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            this.ScreenSize = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
         }
 
 
