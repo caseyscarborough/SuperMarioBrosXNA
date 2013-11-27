@@ -46,6 +46,34 @@ namespace SuperMarioBros.Screens
             PlayMusic(GameContentManager.GetInstance().MainTheme);
         }
 
+        private void HandleTiles(int value, int i, int j)
+        {
+            Tile tile = null;
+            switch (value)
+            {
+                case 1:
+                    tile = new FloorTile(new Vector2(j, i));
+                    break;
+                case 2:
+                    tile = new LargeTreeTile(new Vector2(j * 33, i * 29));
+                    break;
+                case 3:
+                    tile = new BrickTile(new Vector2(j, i));
+                    break;
+                case 4:
+                    tile = new QuestionMarkTile(new Vector2(j, i));
+                    break;
+                case 5:
+                    tile = new BushTile(new Vector2(j * 33, i * 32));
+                    break;
+                case 6:
+                    tile = new CloudTile(new Vector2(j * 33, i * 33));
+                    break;
+            }
+
+            if (tile != null) tileManager.AddTile(tile);
+        }
+
         public override void Draw(GameTime gameTime)
         {
             for (int i = 0; i < LevelOne.Map().Count; i++)
@@ -53,26 +81,7 @@ namespace SuperMarioBros.Screens
                 for (int j = 0; j < ((int[]) LevelOne.Map()[i]).Length; j++)
                 {
                     int value = ((int[]) ((ArrayList) LevelOne.Map())[i])[j];
-                    if (value == 0)
-                    {
-                        continue;   
-                    }
-                    else if (value == 1) 
-                    {
-                        tileManager.AddTile(new FloorTile(new Vector2(j, i)));
-                    }
-                    else if (value == 2)
-                    {
-                        tileManager.AddTile(new LargeTreeTile(new Vector2(j * 33, i * 29)));
-                    }
-                    else if (value == 3)
-                    {
-                        tileManager.AddTile(new BrickTile(new Vector2(j, i)));
-                    }
-                    else if (value == 4)
-                    {
-                        tileManager.AddTile(new QuestionMarkTile(new Vector2(j, i)));
-                    }
+                    HandleTiles(value, i, j);
                 }
             }
             tileManager.Draw(ScreenManager.GetInstance().SpriteBatch);

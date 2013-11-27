@@ -25,9 +25,9 @@ namespace SuperMarioBros.Screens
             : base("")
         {
             // Create our menu entries.s
-            MenuEntry onePlayerGameEntry = new MenuEntry("1 Player Game");
-            MenuEntry twoPlayerGameEntry = new MenuEntry("2 Player Game");
-            MenuEntry exitMenuEntry = new MenuEntry("Exit");
+            MenuEntry onePlayerGameEntry = new MenuEntry("1 PLAYER GAME");
+            MenuEntry twoPlayerGameEntry = new MenuEntry("2 PLAYER GAME");
+            MenuEntry exitMenuEntry = new MenuEntry("QUIT");
 
             // Hook up menu event handlers.
             onePlayerGameEntry.Selected += PlayGameMenuEntrySelected;

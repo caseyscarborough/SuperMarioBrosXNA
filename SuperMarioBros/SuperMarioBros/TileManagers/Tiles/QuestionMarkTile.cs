@@ -24,7 +24,7 @@ namespace SuperMarioBros.TileManagers.Tiles
             base.LoadContent();
             flash = new Rectangle((int)origin.X + 39, (int)origin.Y, width, height);
         }
-
+        
         public void Flash()
         {
             if (gameTimeTracker >= 30)

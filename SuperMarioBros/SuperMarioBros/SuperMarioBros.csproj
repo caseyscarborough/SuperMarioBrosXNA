@@ -113,6 +113,7 @@
     <Compile Include="GameContentManager.cs" />
     <Compile Include="TileManagers\Tiles\BrickTile.cs" />
     <Compile Include="TileManagers\Tiles\BushTile.cs" />
+    <Compile Include="TileManagers\Tiles\CloudTile.cs" />
     <Compile Include="TileManagers\Tiles\FloorTile.cs" />
     <Compile Include="TileManagers\Tiles\LargeTreeTile.cs" />
     <Compile Include="LevelManagers\Level.cs" />
