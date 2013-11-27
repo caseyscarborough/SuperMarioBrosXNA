@@ -11,16 +11,14 @@ namespace SuperMarioBros
 {
     public class GameContentManager
     {
-        private Dictionary<String, Texture2D> _textures;
+        private Dictionary<String, Texture2D> _textures = new Dictionary<String, Texture2D>();
         private static GameContentManager _instance;
         public Song MainTheme;
 
         // Lazily instantiate the GameContentManager class when the instance is called the first time.
         public static GameContentManager GetInstance() {
             if (_instance == null)
-            {
                 _instance = new GameContentManager();
-            }
 
             return _instance;
         }

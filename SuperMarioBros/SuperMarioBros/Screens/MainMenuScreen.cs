@@ -74,11 +74,11 @@ namespace SuperMarioBros.Screens
         public override void Draw(GameTime gameTime)
         {
             Vector2 logoPosition = new Vector2(
-                (ScreenManager.Game.GraphicsDevice.Viewport.Width / 2) - (GameContentManager.MainMenuLogo.Width / 2),
+                (ScreenManager.Game.GraphicsDevice.Viewport.Width / 2) - (GameContentManager.GetInstance().GetTexture("main_menu_logo").Width / 2),
                                            ScreenManager.Game.GraphicsDevice.Viewport.Height / 6);
             spriteBatch = ScreenManager.SpriteBatch;
             spriteBatch.Begin();
-            spriteBatch.Draw(GameContentManager.MainMenuLogo, logoPosition, Color.White);
+            spriteBatch.Draw(GameContentManager.GetInstance().GetTexture("main_menu_logo"), logoPosition, Color.White);
             spriteBatch.End();
             tileManager.Draw(spriteBatch);
             base.Draw(gameTime);

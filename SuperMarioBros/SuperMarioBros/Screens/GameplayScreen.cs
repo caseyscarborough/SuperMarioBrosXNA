@@ -37,7 +37,7 @@ namespace SuperMarioBros.Screens
         public override void LoadContent()
         {
             base.LoadContent();
-            PlayMusic(GameContentManager.MainTheme);
+            PlayMusic(GameContentManager.GetInstance().MainTheme);
         }
 
     }

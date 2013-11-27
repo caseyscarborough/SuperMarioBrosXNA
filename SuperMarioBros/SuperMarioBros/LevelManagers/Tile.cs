@@ -47,7 +47,7 @@ namespace SuperMarioBros.LevelManagers
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(GameContentManager.SpritesTexture, position, rect, Color.White);
+            spriteBatch.Draw(GameContentManager.GetInstance().GetTexture("sprite_sheet"), position, rect, Color.White);
             spriteBatch.End();
         }
     }
