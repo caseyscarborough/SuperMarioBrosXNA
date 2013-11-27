@@ -60,13 +60,18 @@ namespace SuperMarioBros.Screens
         public override void LoadContent()
         {
             spriteBatch = ScreenManager.SpriteBatch;
-            int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height / 33;
+
+            tileManager.AddTile(new LargeTreeTile(new Vector2(150, ScreenManager.ScreenSize.Y - 135)));
+            tileManager.AddTile(new BushTile(new Vector2(ScreenManager.ScreenSize.X - 300, ScreenManager.ScreenSize.Y - 99)));
+
+            int screenHeight = (int) ScreenManager.ScreenSize.Y / 33;
 
             for (int i = 0; i < ScreenManager.ScreenSize.X / 33; i++)
             {
                 tileManager.AddTile(new FloorTile(new Vector2(i, (screenHeight))));
                 tileManager.AddTile(new FloorTile(new Vector2(i, (screenHeight - 1))));
             }
+
 
             base.LoadContent();
         }
