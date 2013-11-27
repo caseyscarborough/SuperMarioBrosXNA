@@ -176,6 +176,7 @@ namespace SuperMarioBros.Screens
             GraphicsDevice graphics = ScreenManager.GraphicsDevice;
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Font;
+            font.LineSpacing = 30;
 
             spriteBatch.Begin();
 

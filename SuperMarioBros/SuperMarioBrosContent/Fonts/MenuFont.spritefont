@@ -11,13 +11,13 @@ with.
     <!--
     Modify this string to change the font that will be imported.
     -->
-    <FontName>Consolas</FontName>
+    <FontName>Press Start 2P</FontName>
 
     <!--
     Size is a float value, measured in points. Modify this value to change
     the size of the font.
     -->
-    <Size>20</Size>
+    <Size>13</Size>
 
     <!--
     Spacing is a float value, measured in pixels. Modify this value to change
@@ -30,7 +30,6 @@ with.
     will be used when placing characters.
     -->
     <UseKerning>true</UseKerning>
-
     <!--
     Style controls the style of the font. Valid entries are "Regular", "Bold", "Italic",
     and "Bold, Italic", and are case sensitive.
@@ -42,7 +41,6 @@ with.
     or measure text that contains characters which were not included in the font.
     -->
     <!-- <DefaultCharacter>*</DefaultCharacter> -->
-
     <!--
     CharacterRegions control what letters are available in the font. Every
     character from Start to End will be built and made available for drawing. The
