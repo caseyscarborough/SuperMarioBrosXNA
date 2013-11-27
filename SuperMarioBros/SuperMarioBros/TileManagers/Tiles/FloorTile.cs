@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SuperMarioBros.LevelManagers
+namespace SuperMarioBros.TileManagers.Tiles
 {
     class FloorTile : Tile
     {

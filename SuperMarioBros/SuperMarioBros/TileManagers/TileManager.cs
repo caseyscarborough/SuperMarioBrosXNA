@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SuperMarioBros.TileManagers.Tiles;
 
-namespace SuperMarioBros.LevelManagers
+namespace SuperMarioBros.TileManagers
 {
     class TileManager
     {

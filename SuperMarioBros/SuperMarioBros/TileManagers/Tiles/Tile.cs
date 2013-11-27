@@ -2,12 +2,13 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using SuperMarioBros.ScreenManagers;
+using SuperMarioBros.LevelManagers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SuperMarioBros.LevelManagers
+namespace SuperMarioBros.TileManagers.Tiles
 {
     public abstract class Tile : DrawableGameComponent
     {

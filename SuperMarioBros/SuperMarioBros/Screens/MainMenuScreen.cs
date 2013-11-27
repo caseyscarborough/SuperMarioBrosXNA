@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using SuperMarioBros.LevelManagers;
+using SuperMarioBros.TileManagers;
+using SuperMarioBros.TileManagers.Tiles;
 using SuperMarioBros.ScreenManagers;
 using System.Collections.Generic;
 

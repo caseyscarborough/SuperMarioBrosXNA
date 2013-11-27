@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Media;
 
 using SuperMarioBros.ScreenManagers;
 using SuperMarioBros.LevelManagers;
+using SuperMarioBros.TileManagers;
+using SuperMarioBros.TileManagers.Tiles;
 using System.Collections;
 
 namespace SuperMarioBros.Screens
