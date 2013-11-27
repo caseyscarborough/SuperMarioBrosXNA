@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System;
@@ -10,15 +11,31 @@ namespace SuperMarioBros
 {
     public class GameContentManager
     {
-        public static Texture2D SpritesTexture;
-        public static Texture2D MainMenuLogo;
-        public static Texture2D Mario;
-        public static Song MainTheme;
+        private Dictionary<String, Texture2D> _textures;
+        private static GameContentManager _instance;
+        public Song MainTheme;
 
-        public static void Initialize(Game game) {
-            SpritesTexture = game.Content.Load<Texture2D>("Sprites/supermariobros");
-            MainMenuLogo = game.Content.Load<Texture2D>("Sprites/main_menu_logo");
-            MainTheme = game.Content.Load<Song>("Sounds/main_theme");
+        // Lazily instantiate the GameContentManager class when the instance is called the first time.
+        public static GameContentManager GetInstance() {
+            if (_instance == null)
+            {
+                _instance = new GameContentManager();
+            }
+
+            return _instance;
+        }
+        
+        // Used to retrieve a texture from the _textures Dict.
+        public Texture2D GetTexture(String name)
+        {
+            return _textures[name];
+        }
+
+        // 
+        public void Initialize(ContentManager c) {
+            _textures["sprite_sheet"] = c.Load<Texture2D>("Sprites/supermariobros");
+            _textures["main_menu_logo"] = c.Load<Texture2D>("Sprites/main_menu_logo");
+            MainTheme = c.Load<Song>("Sounds/main_theme");
         }
     }
 }
