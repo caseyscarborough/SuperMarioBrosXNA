@@ -25,7 +25,7 @@ namespace SuperMarioBros.Screens
 
         public GameplayScreen()
         {
-            tileManager = new TileManager();
+            tileManager = TileManager.GetInstance();
             mario = new Mario(ScreenManager.GetInstance().Game);
             ScreenManager.GetInstance().Game.Components.Add(mario);
         }

@@ -11,10 +11,18 @@ namespace SuperMarioBros.TileManagers
     class TileManager
     {
         ArrayList _tiles;
+        private static TileManager _instance;
 
-        public TileManager()
+        private TileManager()
         {
             _tiles = new ArrayList();
+        }
+
+        public static TileManager GetInstance()
+        {
+            if (_instance == null)
+                _instance = new TileManager();
+            return _instance;
         }
 
         public void AddTile(Tile tile)

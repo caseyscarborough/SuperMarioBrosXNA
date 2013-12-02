@@ -41,7 +41,7 @@ namespace SuperMarioBros.Screens
             MenuEntries.Add(exitMenuEntry);
 
             // Instantiate our tile manager
-            tileManager = new TileManager();
+            tileManager = TileManager.GetInstance();
         }
 
         /// <summary>
