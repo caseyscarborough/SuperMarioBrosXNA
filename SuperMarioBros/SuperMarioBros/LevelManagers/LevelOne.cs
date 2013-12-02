@@ -8,21 +8,11 @@ namespace SuperMarioBros.LevelManagers
 {
     class LevelOne : Level
     {
-        public static ArrayList Map()
-        {
-            if (LevelOne._map == null) 
-            {
-                _map = new ArrayList();
-                using (StreamReader reader = new StreamReader("Content/Levels/level_one.csv"))
-                {
-                    String line = null;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        _map.Add(line.Split(','));
-                    }
-                }
-            }
-            return _map;
+        // Not sure of a better way to do this, tried a static initializer, but
+        // did not work as expected. Will look at this again later.
+        new public static ArrayList Map() {
+            contentPath = "Content/Levels/level_one.csv";
+            return Level.Map();
         }
     }
 }
