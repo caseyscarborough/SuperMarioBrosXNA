@@ -54,8 +54,6 @@ namespace SuperMarioBros.TileManagers
         public void BuildMap(Type type)
         {
             ArrayList map = (ArrayList) type.GetMethod("Map").Invoke(type, new object[]{});
-            Console.WriteLine(map.ToString());
-
             for (int i = 0; i < LevelOne.Map().Count; i++)
             {
                 for (int j = 0; j < ((String[])LevelOne.Map()[i]).Length; j++)
