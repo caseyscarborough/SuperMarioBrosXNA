@@ -30,6 +30,19 @@ namespace SuperMarioBros.TileManagers
             _tiles.Add(tile);
         }
 
+        public void RemoveTile(Tile tile)
+        {
+            _tiles.Remove(tile);
+        }
+
+        public void RemoveAllTiles()
+        {
+            foreach (Tile tile in _tiles)
+            {
+                _tiles.Remove(tile);
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (Tile tile in _tiles) {
