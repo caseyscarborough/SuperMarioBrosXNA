@@ -11,12 +11,22 @@ namespace SuperMarioBros.LevelManagers
 {   
     public class LevelManager
     {
-        public static Game Game;
+        public Game Game;
         public ContentManager Content;
+        private static LevelManager _instance;
+
+        private LevelManager() { }
+
+        public LevelManager GetInstance()
+        {
+            if (_instance == null)
+                _instance = new LevelManager();
+            return _instance;
+        }
 
         protected void LoadContent()
         {
-            Content = Game.Content;
+            Content = _instance.Game.Content;
         }
     }
 }
