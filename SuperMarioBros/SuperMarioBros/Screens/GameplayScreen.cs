@@ -52,7 +52,7 @@ namespace SuperMarioBros.Screens
         public override void LoadContent()
         {
             base.LoadContent();
-            PlayMusic(GameContentManager.GetInstance().MainTheme);
+            PlayMusic(GameContentManager.GetInstance().GetSong("main_theme"));
         }
 
         private void HandleTiles(String value, int i, int j)
