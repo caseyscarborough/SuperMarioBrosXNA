@@ -26,7 +26,7 @@ namespace SuperMarioBros.ScreenManagers
 
         private static ScreenManager _instance;
 
-        public ScreenManager(Game game)
+        private ScreenManager(Game game)
             : base(game)
         {
 

@@ -24,6 +24,8 @@ namespace SuperMarioBros
 
             return _instance;
         }
+
+        private GameContentManager() { }
         
         // Used to retrieve a texture from the _textures Dict.
         public Texture2D GetTexture(String name)
@@ -45,8 +47,10 @@ namespace SuperMarioBros
                 MainTheme = c.Load<Song>("Sounds/main_theme");
                 _sounds["jump"] = c.Load<SoundEffect>("Sounds/jump");
             }
-            catch (Exception e) { }
-            
+            catch (Exception e) 
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }
