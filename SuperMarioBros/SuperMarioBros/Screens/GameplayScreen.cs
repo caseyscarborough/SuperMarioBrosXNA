@@ -55,34 +55,6 @@ namespace SuperMarioBros.Screens
             PlayMusic(GameContentManager.GetInstance().GetSong("main_theme"));
         }
 
-        private void HandleTiles(String value, int i, int j)
-        {
-            Tile tile = null;
-            switch (value)
-            {
-                case "1":
-                    tile = new FloorTile(new Vector2(j, i));
-                    break;
-                case "2":
-                    tile = new LargeTreeTile(new Vector2(j * 33, i * 29));
-                    break;
-                case "3":
-                    tile = new BrickTile(new Vector2(j, i));
-                    break;
-                case "4":
-                    tile = new QuestionMarkTile(new Vector2(j, i));
-                    break;
-                case "5":
-                    tile = new BushTile(new Vector2(j * 33, i * 32));
-                    break;
-                case "6":
-                    tile = new CloudTile(new Vector2(j * 33, i * 33));
-                    break;
-            }
-
-            if (tile != null) tileManager.AddTile(tile);
-        }
-
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             currentKeyboardState = Keyboard.GetState();
@@ -92,16 +64,10 @@ namespace SuperMarioBros.Screens
             previousKeyboardState = currentKeyboardState;
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
         }
+
         public override void Draw(GameTime gameTime)
         {
-            for (int i = 0; i < LevelOne.Map().Count; i++)
-            {
-                for (int j = 0; j < ((String[]) LevelOne.Map()[i]).Length; j++)
-                {
-                    String value = ((String[]) ((ArrayList) LevelOne.Map())[i])[j];
-                    HandleTiles(value, i, j);
-                }
-            }
+            tileManager.BuildMap(typeof(LevelOne));
             tileManager.Draw(ScreenManager.GetInstance().SpriteBatch);
             base.Draw(gameTime);
         }
