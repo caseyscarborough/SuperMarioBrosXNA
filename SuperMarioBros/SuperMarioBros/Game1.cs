@@ -38,7 +38,7 @@ namespace SuperMarioBros
             // TODO: Add your initialization logic here
 
             content = new ContentManager(this.Services, "Content");
-            LevelManager.Game = this;
+            LevelManager.GetInstance().Game = this;
 
             ScreenManager.Initialize(this);
             GameContentManager.GetInstance().Initialize(this.Content);

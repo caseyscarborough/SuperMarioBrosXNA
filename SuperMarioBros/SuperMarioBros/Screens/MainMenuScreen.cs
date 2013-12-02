@@ -31,8 +31,8 @@ namespace SuperMarioBros.Screens
             MenuEntry exitMenuEntry = new MenuEntry("QUIT");
 
             // Hook up menu event handlers.
-            onePlayerGameEntry.Selected += PlayGameMenuEntrySelected;
-            twoPlayerGameEntry.Selected += PlayGameMenuEntrySelected;
+            onePlayerGameEntry.Selected += PlayGameSelected;
+            twoPlayerGameEntry.Selected += PlayGameSelected;
             exitMenuEntry.Selected += ExitGameSelected;
 
             // Add entries to the menu.
@@ -47,7 +47,7 @@ namespace SuperMarioBros.Screens
         /// <summary>
         /// Event handler for when the Play Game menu entry is selected.
         /// </summary>
-        void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void PlayGameSelected(object sender, PlayerIndexEventArgs e)
         {
             ScreenManager.GetInstance().Game.Components.RemoveAt(1);
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());

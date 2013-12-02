@@ -17,7 +17,7 @@ namespace SuperMarioBros.LevelManagers
 
         private LevelManager() { }
 
-        public LevelManager GetInstance()
+        public static LevelManager GetInstance()
         {
             if (_instance == null)
                 _instance = new LevelManager();

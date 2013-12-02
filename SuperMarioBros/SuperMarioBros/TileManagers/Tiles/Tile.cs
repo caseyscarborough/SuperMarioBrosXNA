@@ -30,7 +30,7 @@ namespace SuperMarioBros.TileManagers.Tiles
             get { return height; }
         }
 
-        public Tile(Vector2 position, int width, int height, Vector2 origin) : base(LevelManager.Game)
+        public Tile(Vector2 position, int width, int height, Vector2 origin) : base(LevelManager.GetInstance().Game)
         {
             this.position = position;
             this.width = width;
